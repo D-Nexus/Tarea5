@@ -4,6 +4,7 @@
  */
 package view;
 import controller.AlumnoController;
+import java.text.DecimalFormat;
 import model.Alumno;
 /**
  *
@@ -321,7 +322,12 @@ public class agregarNotas extends javax.swing.JFrame {
         AlumnoController aController = new AlumnoController();
         Double resultadoNota;
         resultadoNota = aController.obtenerNotaFinal(Integer.parseInt(rutAlumno.getText()));
-        Resultado.setText("Nota final: "+Double.toString(resultadoNota));
+        //Pasar el resultado a formato 2 decimales maximo
+        DecimalFormat formato = new DecimalFormat("#.##");
+        formato.setMaximumFractionDigits(2);
+        String resultadoFormato = formato.format(resultadoNota);
+        //Mostrar nota final
+        Resultado.setText("Nota final: "+resultadoFormato);
     }
     
 
