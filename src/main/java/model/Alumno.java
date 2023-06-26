@@ -99,16 +99,7 @@ public class Alumno {
         Alumno.alumnos = alumnos;
     }
     
-    //Metodos
-    //Agrega una nota en la lista trabajos
-    public void agregarNotaTrabajo(Double nota){
-        trabajos.add(nota);
-    }
-    //Agrega una nota en la lista tareas
-    public void agregarNotaTarea(Double nota){
-        tareas.add(nota);
-    }
-    
+    //Metodos 
     public Double calcularNotaPromedioTrabajos(LinkedList<Double> notas){
         //Notas
         Double E1 = notas.get(0);
