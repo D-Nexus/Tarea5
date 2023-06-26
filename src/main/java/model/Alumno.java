@@ -13,23 +13,42 @@ import java.util.LinkedList;
  */
 public class Alumno {
     //Atributos
+    private int rut;
+    private String nombre;
     //Listas de notas
     private LinkedList<Double> tareas;
     private LinkedList<Double> trabajos;
     private Double certamen; //Es solo 1 certamen por eso no utilice lista
     private Double notaFinal = 0.0; //La seteamos en 0.0 hasta que se modifique
     
+    //Lista de alumnos
+    private static LinkedList<Alumno> alumnos;
+    
     //Constructor
     public Alumno(){
     }
 
-    public Alumno(LinkedList<Double> tareas, Double certamen, LinkedList<Double> trabajos) {
-        this.tareas = tareas;
-        this.certamen = certamen;
+    public Alumno(int rut, String nombre, LinkedList<Double> trabajos, Double certamen) {
+        this.rut = rut;
+        this.nombre = nombre;
         this.trabajos = trabajos;
+        this.certamen = certamen;
+    }
+
+    public Alumno(int rut, String nombre) {
+        this.rut = rut;
+        this.nombre = nombre;
+    }
+   
+    //Getters
+    public String getNombre() {    
+        return nombre;
     }
     
-    //Getters
+     public int getRut() {
+        return rut;
+    }
+
     public LinkedList<Double> getTareas() {
         return tareas;
     }
@@ -45,8 +64,21 @@ public class Alumno {
     public Double getNotaFinal() {
         return notaFinal;
     }
+
+    public static LinkedList<Alumno> getAlumnos() {
+        return alumnos;
+    }
     
     //Setters
+
+    public void setRut(int rut) {
+        this.rut = rut;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+    
     public void setTareas(LinkedList<Double> tareas) {
         this.tareas = tareas;
     }
@@ -61,6 +93,10 @@ public class Alumno {
 
     public void setNotaFinal(Double notaFinal) {
         this.notaFinal = notaFinal;
+    }
+
+    public static void setAlumnos(LinkedList<Alumno> alumnos) {
+        Alumno.alumnos = alumnos;
     }
     
     //Metodos

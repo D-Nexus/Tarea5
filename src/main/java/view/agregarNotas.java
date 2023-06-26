@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package view;
-
+import model.Alumno;
 /**
  *
  * @author sebas
@@ -205,9 +205,7 @@ public class agregarNotas extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
+    
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
