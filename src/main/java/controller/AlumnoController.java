@@ -45,6 +45,16 @@ public class AlumnoController {
             }
         }
     }
-
+    
+    public Double obtenerNotaFinal(int rut){
+        //Buscamos al alumno
+        for(Alumno alumno : Alumno.getAlumnos()){
+            if(alumno.getRut() == rut){
+                return alumno.calcularNotaFinal();
+            }
+        }
+        //Si no existe
+        return 0.0;
+    }
     
 }

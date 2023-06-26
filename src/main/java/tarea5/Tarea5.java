@@ -23,5 +23,6 @@ public class Tarea5 {
         agregarNotas ventana1 = new agregarNotas();
         ventana1.setVisible(true);
         ventana1.setLocationRelativeTo(null);
+        
     }
 }

@@ -101,6 +101,10 @@ public class Alumno {
     
     //Metodos 
     public Double calcularNotaPromedioTrabajos(LinkedList<Double> notas){
+        if (notas.isEmpty()){
+            return 0.0;
+        }
+        else {
         //Notas
         Double E1 = notas.get(0);
         Double E2 = notas.get(1);
@@ -110,9 +114,14 @@ public class Alumno {
         promedio = (E1 * 0.40) + (E2 * 0.35) + (E3 * 0.25);
         //Salida
         return promedio;
+        }
     }
     
     public Double calcularNotaPromedioTareas(LinkedList<Double> notas){
+        if (notas.isEmpty()){
+            return 0.0;
+        }
+        else {
         //Ordenamos de menor a mayor
         Collections.sort(notas);
         //Descartamos la menor de todas
@@ -126,6 +135,7 @@ public class Alumno {
         promedio = suma / notas.size(); //Dividimos por el total de notas
         //Salida
         return promedio;
+        }
     }
     
     public Double calcularNotaFinal(){
