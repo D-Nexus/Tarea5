@@ -16,9 +16,9 @@ public class Alumno {
     private int rut;
     private String nombre;
     //Listas de notas
-    private LinkedList<Double> tareas;
-    private LinkedList<Double> trabajos;
-    private Double certamen; //Es solo 1 certamen por eso no utilice lista
+    private LinkedList<Double> tareas = new LinkedList<>();
+    private LinkedList<Double> trabajos = new LinkedList<>();
+    private Double certamen = 0.0; //Es solo 1 certamen por eso no utilice lista
     private Double notaFinal = 0.0; //La seteamos en 0.0 hasta que se modifique
     
     //Lista de alumnos
