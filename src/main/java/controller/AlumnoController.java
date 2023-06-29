@@ -57,4 +57,8 @@ public class AlumnoController {
         return 0.0;
     }
     
+    public Double obtenerPromedioCurso(){
+        return Alumno.promedioCurso();
+    }
+    
 }

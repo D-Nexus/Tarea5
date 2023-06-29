@@ -152,4 +152,16 @@ public class Alumno {
         
     }
     
+    public static Double promedioCurso(){
+        Double promedioCurso = 0.0;
+        Double sumaNotas = 0.0;
+        for(Alumno alumno : Alumno.getAlumnos()){
+            sumaNotas += alumno.getNotaFinal();
+        }
+        //Calcular promedio
+        promedioCurso = sumaNotas / Alumno.getAlumnos().size();
+        //Salida
+        return promedioCurso;
+    }
+    
 }

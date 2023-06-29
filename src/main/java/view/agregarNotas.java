@@ -55,7 +55,7 @@ public class agregarNotas extends javax.swing.JFrame {
         Error = new javax.swing.JLabel();
         btnCalcularNota = new javax.swing.JButton();
         Resultado = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
+        promedioCurso = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -128,8 +128,8 @@ public class agregarNotas extends javax.swing.JFrame {
         Resultado.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
         Resultado.setText("Nota final: ");
 
-        jLabel15.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
-        jLabel15.setText("Calcular nota final");
+        promedioCurso.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
+        promedioCurso.setText("P. Curso:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -184,7 +184,9 @@ public class agregarNotas extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnCalcularNota, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(27, 27, 27)
-                        .addComponent(Resultado, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(Resultado, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE)
+                            .addComponent(promedioCurso, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(12, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -192,9 +194,6 @@ public class agregarNotas extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(Error, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(87, 87, 87))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel15)
-                        .addGap(135, 135, 135))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(rutAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -253,12 +252,16 @@ public class agregarNotas extends javax.swing.JFrame {
                         .addComponent(rutAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(Error)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
-                .addComponent(jLabel15)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCalcularNota, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Resultado, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(promedioCurso, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Resultado, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(btnCalcularNota, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(24, 24, 24))
         );
 
@@ -290,6 +293,8 @@ public class agregarNotas extends javax.swing.JFrame {
             trabajoNota2.setText("");
             trabajoNota3.setText("");
             certamenNota1.setText("");
+            Resultado.setText("Nota final:");
+            promedioCurso.setText("P. Curso:");
         }
     }//GEN-LAST:event_btnAgregarActionPerformed
 
@@ -321,13 +326,20 @@ public class agregarNotas extends javax.swing.JFrame {
     private void calcularNotaFinal(){
         AlumnoController aController = new AlumnoController();
         Double resultadoNota;
+        Double notaPromedioCurso;
+        //Nota final del alumno
         resultadoNota = aController.obtenerNotaFinal(Integer.parseInt(rutAlumno.getText()));
+        //Nota promedio del curso
+        notaPromedioCurso = aController.obtenerPromedioCurso();
         //Pasar el resultado a formato 2 decimales maximo
         DecimalFormat formato = new DecimalFormat("#.##");
         formato.setMaximumFractionDigits(2);
         String resultadoFormato = formato.format(resultadoNota);
+        String promedioCursoFormato = formato.format(notaPromedioCurso);
         //Mostrar nota final
         Resultado.setText("Nota final: "+resultadoFormato);
+        //Mostrar promedio curso
+        promedioCurso.setText("P. Curso: "+promedioCursoFormato);
     }
     
 
@@ -342,7 +354,6 @@ public class agregarNotas extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -351,6 +362,7 @@ public class agregarNotas extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel promedioCurso;
     private javax.swing.JTextField rutAlumno;
     private javax.swing.JTextField tareaNota1;
     private javax.swing.JTextField tareaNota2;
