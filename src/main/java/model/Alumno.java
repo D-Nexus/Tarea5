@@ -118,23 +118,37 @@ public class Alumno {
     }
     
     public Double calcularNotaPromedioTareas(LinkedList<Double> notas){
+        //En caso de no existir notas
         if (notas.isEmpty()){
             return 0.0;
         }
-        else {
-        //Ordenamos de menor a mayor
-        Collections.sort(notas);
-        //Descartamos la menor de todas
-        notas.remove(0);
-        //Calcular promedio
-        Double promedio = 0.0;
-        Double suma = 0.0; //Sumamos las notas restantes en la lista
-        for ( Double nota : notas){
-            suma += nota;
+        //Solo si existen 5 notas elimina la menor
+        else if(notas.size() == 5){
+            //Ordenamos de menor a mayor
+            Collections.sort(notas);
+            //Descartamos la menor de todas
+            notas.remove(0);
+            //Calcular promedio
+            Double promedio = 0.0;
+            Double suma = 0.0; //Sumamos las notas restantes en la lista
+            for ( Double nota : notas){
+                suma += nota;
+            }
+            promedio = suma / notas.size(); //Dividimos por el total de notas
+            //Salida
+            return promedio;
         }
-        promedio = suma / notas.size(); //Dividimos por el total de notas
-        //Salida
-        return promedio;
+        //Si existen menos de 5 notas calcula solamente
+        else {
+            //Calcular promedio
+            Double promedio = 0.0;
+            Double suma = 0.0; //Sumamos las notas restantes en la lista
+            for ( Double nota : notas){
+                suma += nota;
+            }
+            promedio = suma / notas.size(); //Dividimos por el total de notas
+            //Salida
+            return promedio;
         }
     }
     
