@@ -7,7 +7,7 @@ import java.util.LinkedList;
 import model.Alumno;
 /**
  *
- * @author Sebastian
+ * @author D-Nexus
  */
 public class AlumnoController {
     
