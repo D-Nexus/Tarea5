@@ -10,7 +10,7 @@ import view.agregarNotas;
 
 /**
  *
- * @author sebas
+ * @author D-Nexus
  */
 public class Tarea5 {
 
