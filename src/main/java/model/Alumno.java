@@ -9,7 +9,7 @@ import java.util.LinkedList;
 
 /**
  *
- * @author Sebastian
+ * @author D-Nexus
  */
 public class Alumno {
     //Atributos
