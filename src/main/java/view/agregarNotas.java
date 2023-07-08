@@ -8,7 +8,7 @@ import java.text.DecimalFormat;
 import model.Alumno;
 /**
  *
- * @author sebas
+ * @author D-Nexus
  */
 public class agregarNotas extends javax.swing.JFrame {
 
